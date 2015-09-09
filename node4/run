@@ -5,5 +5,5 @@ docker run -ti --rm \
            -p 3000:3000 \
            -p 5858:5858 \
            -p 8080:8080 \
-           tuttlem/node:latest \
+           tuttlem/node4 \
            /bin/bash
