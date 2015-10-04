@@ -43,5 +43,7 @@ function ensure_skype {
 
 }
 
+xhost +local: 
+
 ensure_pulse_audio
 ensure_skype
