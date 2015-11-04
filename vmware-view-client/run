@@ -3,8 +3,8 @@
 export DISPLAY=:0; docker run --rm \
     -e DISPLAY \
     -e USER \
-    -v ~/althome/.vmware-view-client.license-accepted:/root/.vmware-view-client.license-accepted \
-    -v ~/althome/.vmware:/root/.vmware \
+    -v ~/.vmware-view-home/.vmware-view-client.license-accepted:/root/.vmware-view-client.license-accepted \
+    -v ~/.vmware-view-home/.vmware:/root/.vmware \
     -v ~/.Xauthority:/root/.Xauthority \
     --net=host \
     vmwvc
