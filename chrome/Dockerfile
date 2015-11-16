@@ -5,8 +5,8 @@ MAINTAINER Michael Tuttle <tuttlem@gmail.com>
 # ADD https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb /src/google-talkplugin_current_amd64.deb
 # ADD https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb /src/google-chrome-stable_current_amd64.deb
 
-ADD google-talkplugin_current_amd64.deb /src/google-talkplugin_current_amd64.deb
-ADD google-chrome-stable_current_amd64.deb /src/google-chrome-stable_current_amd64.deb
+ADD pkg/google-talkplugin_current_amd64.deb /src/google-talkplugin_current_amd64.deb
+ADD pkg/google-chrome-stable_current_amd64.deb /src/google-chrome-stable_current_amd64.deb
 
 # Install Chromium
 RUN mkdir -p /usr/share/icons/hicolor && \
