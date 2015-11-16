@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker run -ti --rm \
+       -v $(pwd):/usr/src/app \
+       -w /usr/src/app \
+       java \
+       $@
+
