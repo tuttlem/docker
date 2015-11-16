@@ -1,0 +1,23 @@
+#!/bin/bash
+
+xhost +local:
+
+SWBJ_RUNNING=$(docker inspect --format="{{ .State.Running }}" sqlwbj 2> /dev/null)
+
+if [ $? -eq 1 ]; then
+
+  docker run -ti                                            \
+         --name sqlwbj                                      \
+         -v /home/michael/src/sql:/root/sql                 \
+         -v /home/michael/.sqlworkbench:/root/.sqlworkbench \
+         -v /tmp/.X11-unix:/tmp/.X11-unix                   \
+         -e DISPLAY=unix:0.0                                \
+         tuttlem/sqlworkbenchj
+
+else
+
+  if [ "$SWBJ_RUNNING" == "false" ]; then
+    docker start sqlwbj
+  fi
+
+fi
