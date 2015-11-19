@@ -1,0 +1,11 @@
+#!/bin/bash
+
+xhost +local:
+
+docker run --rm \
+       -e DISPLAY=unix:0.0                                \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v /dev/snd:/dev/snd --privileged \
+       -v /home/michael/src:/src \
+       --net=host \
+       firstmac/vscode       
