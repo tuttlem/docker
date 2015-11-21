@@ -1,0 +1,7 @@
+#!/bin/bash
+
+       docker run --rm -ti \
+              -w /usr/uv \
+              -p 31438:31438 \
+              tuttlem/uv:latest \
+              sh -c 'bin/uv -admin -stop; bin/uv -admin -start; bin/uv'

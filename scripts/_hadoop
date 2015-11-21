@@ -1,3 +1,7 @@
 #!/bin/bash
 
-docker run -it sequenceiq/hadoop-docker:2.7.0 /etc/bootstrap.sh -bash
+docker run -it                        \
+       -v /home/michael/src:/src      \
+       -v /srv:/srv                   \
+       sequenceiq/hadoop-docker:2.7.0 \
+       /etc/bootstrap.sh -bash
