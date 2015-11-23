@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker run -ti --rm \
+docker run --rm \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        -v /dev/snd:/dev/snd --privileged \
