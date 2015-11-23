@@ -1,8 +1,31 @@
 #!/bin/bash
 
-docker run --rm \
-       -e DISPLAY=$DISPLAY \
-       -v /tmp/.X11-unix:/tmp/.X11-unix \
-       -v /dev/snd:/dev/snd --privileged \
-       -v $(pwd)/src:/src \
-       firstmac/eclipse:latest
+xhost +local:
+
+ECLIPSE_RUNNING=$(docker inspect --format="{{ .State.Running }}" eclipse 2> /dev/null)
+
+if [ $? -eq 1 ]; then
+    docker run \
+           --net host \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -e DISPLAY=$DISPLAY \
+           -v /home/michael/src/eclipse:/src \
+           --device /dev/snd \
+           -v /dev/shm:/dev/shm \
+           -w /src \
+           --name eclipse \
+           tuttlem/eclipse
+
+else
+
+  if [ "$ECLIPSE_RUNNING" == "false" ]; then
+    docker start eclipse
+  else
+    # run a new instance if it's already running (should just be a new window)
+    # note that the --user-data-dir switch must align with the config data that we have mounted
+    # in the run command
+    docker exec eclipse sh -c "/opt/eclipse/eclipse '$@'"
+  fi
+
+fi
+

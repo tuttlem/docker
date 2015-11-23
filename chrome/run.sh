@@ -5,7 +5,7 @@ xhost +local:
 CHROME_RUNNING=$(docker inspect --format="{{ .State.Running }}" chrome 2> /dev/null)
 
 if [ $? -eq 1 ]; then
-    docker run -it \
+    docker run \
            --net host \
            --cpuset-cpus 0 \
            --memory 512mb \
