@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER Michael Tuttle <tuttlem@gmail.com>
 
 RUN apt-get update && \
-    apt-get install -y sudo curl  && \
+    apt-get install -y curl  && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -27,15 +27,5 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
-
-RUN adduser --disabled-password --gecos '' michael && \
-    adduser michael sudo && \
-    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-WORKDIR /home/michael
-ENV HOME /home/michael
-VOLUME ["/home/michael"]
-
-USER michael
 
 CMD [ "node" ]

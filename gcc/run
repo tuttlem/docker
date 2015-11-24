@@ -1,6 +1,0 @@
-#!/bin/bash
-
-docker run -ti --rm \
-           -v /home/michael/src:/home/michael/src \
-           tuttlem/gcc:latest \
-           /bin/bash

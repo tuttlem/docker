@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run -ti --rm -v $(pwd):/home/michael/src tuttlem/python:2 /bin/bash

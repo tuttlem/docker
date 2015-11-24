@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run -ti --rm -p 5004:5004 -v $(pwd):/home/michael tuttlem/aspnet:latest /bin/bash

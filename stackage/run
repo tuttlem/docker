@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run -ti --rm -v $(pwd):/home/michael tuttlem/haskell:latest /bin/bash

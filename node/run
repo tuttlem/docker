@@ -1,9 +1,0 @@
-#!/bin/bash
-
-docker run -ti --rm \
-           -v /home/michael/src:/home/michael/src \
-           -p 3000:3000 \
-           -p 5858:5858 \
-           -p 8080:8080 \
-           tuttlem/node:latest \
-           /bin/bash

@@ -4,7 +4,7 @@ MAINTAINER Michael Tuttle <tuttlem@gmail.com>
 
 # opencv system dependencies
 RUN apt-get update && \
-    apt-get install -y unzip sudo cmake libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev libamd2.3.1 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.6.2 libstdc++6 build-essential gfortran libatlas-dev libatlas3-base libblas-dev liblapack-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev && \
+    apt-get install -y unzip cmake libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev libamd2.3.1 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.6.2 libstdc++6 build-essential gfortran libatlas-dev libatlas3-base libblas-dev liblapack-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -29,13 +29,5 @@ RUN unzip 3.0.0.zip && \
     make -j8 && \
     make install
 
-RUN adduser --disabled-password --gecos '' michael && \
-    adduser michael sudo && \
-    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-WORKDIR /home/michael
-ENV HOME /home/michael
-VOLUME ["/home/michael"]
-
-USER michael
 
