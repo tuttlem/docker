@@ -6,8 +6,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# ADD http://mirror.internode.on.net/pub/eclipse/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz /tmp/eclipse
-ADD eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz /opt
+ADD http://mirror.internode.on.net/pub/eclipse/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz /opt
+# ADD eclipse-jee-mars-1-linux-gtk-x86_64.tar.gz /opt
 
 WORKDIR /src/workspace
 VOLUME ["/src/workspace"]

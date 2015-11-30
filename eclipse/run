@@ -14,7 +14,7 @@ if [ $? -eq 1 ]; then
            -v /dev/shm:/dev/shm \
            -w /src \
            --name eclipse \
-           tuttlem/eclipse
+           firstmac/eclipse
 
 else
 
