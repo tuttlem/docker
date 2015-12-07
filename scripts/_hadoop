@@ -3,5 +3,6 @@
 docker run -it                        \
        -v /home/michael/src:/src      \
        -v /srv:/srv                   \
+       -p 8088:8088                   \
        sequenceiq/hadoop-docker:2.7.0 \
        /etc/bootstrap.sh -bash

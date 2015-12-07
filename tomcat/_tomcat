@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker run -d \
+       --name tomcat \
+       -v $(pwd)/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro \
+       -p 8080:8080 \
+       tomcat
