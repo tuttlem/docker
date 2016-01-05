@@ -18,4 +18,5 @@ RUN mkdir -p /usr/local/src/ && \
     make check && \
     make install
 
+ENV LD_LIBRARY_PATH /usr/local/lib
 
