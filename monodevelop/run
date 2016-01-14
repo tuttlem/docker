@@ -4,5 +4,6 @@ docker run --rm \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        -v /dev/snd:/dev/snd --privileged \
-       -v $(pwd)/src:/home/michael/src \
+       -v /home/michael/src:/usr/local/src \
+       -w /usr/local/src \
        tuttlem/monodevelop:latest

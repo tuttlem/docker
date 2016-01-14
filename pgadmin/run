@@ -8,8 +8,9 @@ if [ $? -eq 1 ]; then
 
   docker run                                           \
          --name pgadmin                                      \
-         -v /home/michael/src/sql:/root/sql                 \
+         -v /home/michael/src/sql:/usr/local/src        \
          -v /tmp/.X11-unix:/tmp/.X11-unix                   \
+         -w /usr/local/src                                \
          -e DISPLAY=unix:0.0                                \
          tuttlem/pgadmin
 

@@ -2,7 +2,8 @@
 
 docker run --rm \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -v /home/michael/src/soapui:/opt/projects \
+           -v /home/michael/src/fsys/soapui:/usr/local/proj \
+           -w /usr/local/proj \
            -e DISPLAY=unix:0.0 \
            tuttlem/soapui \
            /usr/local/bin/SoapUI-5.2.1

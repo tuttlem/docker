@@ -4,6 +4,7 @@ docker run --rm \
            --dns=`getent hosts ns3.firstmac.com.au | awk {'printf $1'}` \
            --dns=`getent hosts ns4.firstmac.com.au | awk {'printf $1'}` \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -v /home/michael/src/plans:/opt/plans \
+           -v /home/michael/src/fsys/jmeter:/usr/local/jmeter \
+           -w /usr/local/jmeter \
            -e DISPLAY=unix:0.0 \
            tuttlem/jmeter
