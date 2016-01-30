@@ -3,5 +3,7 @@
 docker run --rm -ti \
        -v $(pwd):/usr/src/app \
        -w /usr/src/app \
+       -p 8888:8888 \
+       -p 8080:8080 \
        tuttlem/activator \
        sh -c "activator $@"
