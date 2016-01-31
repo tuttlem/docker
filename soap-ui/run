@@ -1,9 +1,11 @@
 #!/bin/bash
 
+xhost +local:
+
 docker run --rm \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v /home/michael/src/fsys/soapui:/usr/local/proj \
            -w /usr/local/proj \
            -e DISPLAY=unix:0.0 \
-           tuttlem/soapui \
-           /usr/local/bin/SoapUI-5.2.1
+           --dns=172.23.90.254 \
+           tuttlem/soap-ui 

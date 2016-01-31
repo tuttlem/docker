@@ -1,10 +1,7 @@
 FROM java
 MAINTAINER Michael Tuttle <tuttlem@gmail.com>
 
-# ADD http://apache.uberglobalmirror.com/jmeter/binaries/apache-jmeter-2.13.tgz /opt
-ADD SoapUI-x64-5.2.1.sh /tmp/SoapUI-x64-5.2.1.sh
+ADD http://cdn01.downloads.smartbear.com/soapui/5.2.1/SoapUI-5.2.1-linux-bin.tar.gz /opt/
+# ADD SoapUI-5.2.1-linux-bin.tar.gz /opt/
 
-VOLUME /opt/projects
-WORKDIR /opt/projects
-
-RUN "/tmp/SoapUI-x64-5.2.1.sh"
+CMD ["/opt/SoapUI-5.2.1/bin/soapui.sh"]
