@@ -1,7 +1,0 @@
-#!/bin/bash
-
-docker run --rm -ti \
-       -v $(pwd):/usr/src/app \
-       -w /usr/src/app \
-       tuttlem/scala \
-       sh -c "scalac $@"

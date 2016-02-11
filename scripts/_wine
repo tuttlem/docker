@@ -1,0 +1,17 @@
+#!/bin/bash
+
+xhost +local:
+
+docker run \
+       --rm -ti \
+       --net host \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -e DISPLAY=$DISPLAY \
+       -v /home/michael/wine:/usr/local/wine \
+       -v /home/michael/wine/.wine:/root/.wine \
+       --device /dev/snd \
+       -v /dev/shm:/dev/shm \
+       -w /usr/local/wine \
+       --entrypoint /bin/bash \
+       suchja/wine \
+       $@
