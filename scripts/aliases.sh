@@ -8,6 +8,8 @@
 
 dinv_pfx="docker run --rm -ti -v $(pwd):/usr/src/app -w /usr/src/app -P"
 
+alias dokrun="$dinv_pfx"
+
 # awscli
 alias aws="$dinv_pfx -v ~/.aws:/root/.aws --entrypoint aws tuttlem/awscli:latest"
 
@@ -17,7 +19,7 @@ alias activator="$dinv_pfx --entrypoint activator -p 8888:8888 -p 8080:8080 tutt
 # asp.net container
 alias dnx="$dinv_pfx --entrypoint dnx microsoft/aspnet:latest"
 alias dnu="$dinv_pfx --entrypoint dnu microsoft/aspnet:latest"
-alias dnvm="$dinv_pfx --entypoint dnvm microsoft/aspnet:latest"
+alias dnvm="$dinv_pfx --entrypoint dnvm microsoft/aspnet:latest"
 
 # haskell container
 alias ghc="$dinv_pfx --entrypoint ghc haskell:latest"
