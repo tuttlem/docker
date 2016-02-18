@@ -1,58 +1,61 @@
 #!/bin/bash
 
-# Alias setup
+# Base docker invocation setup 
 #
-# This script will setup useful docker container invocations asaliases that 
-# will be available to the user at the console. This is to save on needing to 
-# create a script file everytime a new container will be generally-purposed
+# We need a few special things to happen every time a docker container
+# is requested to start. One of these things is to recalculate the 
+# shell expansion of $(pwd). The value of that expansion needs to follow
+# the user around.
 
-dinv_pfx="docker run --rm -ti -v $(pwd):/usr/src/app -w /usr/src/app -P"
-
-alias dokrun="$dinv_pfx"
+function dok_exec() {
+  cmd="docker run --rm -ti -v $(pwd):/usr/src/app -w /usr/src/app -P $@"
+  sh -c $cmd
+}
 
 # awscli
-alias aws="$dinv_pfx -v ~/.aws:/root/.aws --entrypoint aws tuttlem/awscli:latest"
+alias aws="dok_exec -v ~/.aws:/root/.aws --entrypoint aws tuttlem/awscli:latest"
 
 # typesafe activator
-alias activator="$dinv_pfx --entrypoint activator -p 8888:8888 -p 8080:8080 tuttlem/activator"
+alias activator="dok_exec --entrypoint activator -p 8888:8888 -p 8080:8080 tuttlem/activator"
 
 # asp.net container
-alias dnx="$dinv_pfx --entrypoint dnx microsoft/aspnet:latest"
-alias dnu="$dinv_pfx --entrypoint dnu microsoft/aspnet:latest"
-alias dnvm="$dinv_pfx --entrypoint dnvm microsoft/aspnet:latest"
+alias dnx="dok_exec --entrypoint dnx microsoft/aspnet:latest"
+alias dnu="dok_exec --entrypoint dnu microsoft/aspnet:latest"
+alias dnvm="dok_exec --entrypoint dnvm microsoft/aspnet:latest"
 
 # haskell container
-alias ghc="$dinv_pfx --entrypoint ghc haskell:latest"
-alias ghci="$dinv_pfx --entrypoint ghci haskell:latest"
-alias cabal="$dinv_pfx --entrypoint cabal haskell:latest"
+alias ghc="dok_exec --entrypoint ghc haskell:latest"
+alias ghci="dok_exec --entrypoint ghci haskell:latest"
+alias cabal="dok_exec --entrypoint cabal haskell:latest"
 
 # java container
-alias java="$dinv_pfx --entrypoint java java:latest"
-alias javac="$dinv_pfx --entrypoint javac java:latest"
-alias jar="$dinv_pfx --entrypoint jar java:latest"
+alias java="dok_exec --entrypoint java java:latest"
+alias javac="dok_exec --entrypoint javac java:latest"
+alias jar="dok_exec --entrypoint jar java:latest"
+alias keytool="dok_exec --entrypoint keytool java:latest"
 
 # node container
-alias node="$dinv_pfx --entrypoint node node:latest"
-alias npm="$dinv_pfx --entrypoint npm node:latest"
+alias node="dok_exec --entrypoint node node:latest"
+alias npm="dok_exec --entrypoint npm node:latest"
 
 # mongo container
-alias mongo="$dinv_pfx --entrypoint mongo mongo:latest"
-alias mongodump="$dinv_pfx --entrypoint mongodump mongo:latest"
-alias mongoexport="$dinv_pfx --entrypoint mongoexport mongo:latest"
-alias mongotop="$dinv_pfx --entrypoint mongotop mongo:latest"
-alias mongostat="$dinv_pfx --entrypoint mongostat mongo:latest"
-alias mongoperf="$dinv_pfx --entrypoint mongoperf mongo:latest"
-alias mongorestore="$dinv_pfx --entrypoint mongorestore mongo:latest"
+alias mongo="dok_exec --entrypoint mongo mongo:latest"
+alias mongodump="dok_exec --entrypoint mongodump mongo:latest"
+alias mongoexport="dok_exec --entrypoint mongoexport mongo:latest"
+alias mongotop="dok_exec --entrypoint mongotop mongo:latest"
+alias mongostat="dok_exec --entrypoint mongostat mongo:latest"
+alias mongoperf="dok_exec --entrypoint mongoperf mongo:latest"
+alias mongorestore="dok_exec --entrypoint mongorestore mongo:latest"
 
 # postgres container
-alias pg="$dinv_pfx --entrypoint pg postgres:latest"
-alias pg_dump="$dinv_pfx --entrypoint pg_dump postgres:latest"
-alias pg_restore="$dinv_pfx --entrypoint pg_restore postgres:latest"
-alias psql="$dinv_pfx --entrypoint psql postgres:latest"
+alias pg="dok_exec --entrypoint pg postgres:latest"
+alias pg_dump="dok_exec --entrypoint pg_dump postgres:latest"
+alias pg_restore="dok_exec --entrypoint pg_restore postgres:latest"
+alias psql="dok_exec --entrypoint psql postgres:latest"
 
 # redis container
-alias redis-cli="$dinv_pfx --entrypoint redis-cli redis:latest"
+alias redis-cli="dok_exec --entrypoint redis-cli redis:latest"
 
 # scala container
-alias scala="$dinv_pfx --entrypoint scala tuttlem/scala"
-alias scalac="$dinv_pfx --entrypoint scalac tuttlem/scala"
+alias scala="dok_exec --entrypoint scala tuttlem/scala"
+alias scalac="dok_exec --entrypoint scalac tuttlem/scala"
