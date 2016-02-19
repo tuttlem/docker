@@ -47,6 +47,16 @@ alias mongostat="dok_exec --entrypoint mongostat mongo:latest"
 alias mongoperf="dok_exec --entrypoint mongoperf mongo:latest"
 alias mongorestore="dok_exec --entrypoint mongorestore mongo:latest"
 
+# mono container
+alias mono="dok_exec --entrypoint mono mono:latest"
+alias mcs="dok_exec --entrypoint mcs mono:latest"
+alias gacutil="dok_exec --entrypoint gacutil mono:latest"
+alias xsp="dok_exec --entrypoint xsp mono:latest"
+alias mono-config="dok_exec --entrypoint mono-config mono:latest"
+alias ilasm="dok_exec --entrypoint ilasm mono:latest"
+alias monodis="dok_exec --entrypoint monodis mono:latest"
+alias monop="dok_exec --entrypoint monop mono:latest"
+
 # postgres container
 alias pg="dok_exec --entrypoint pg postgres:latest"
 alias pg_dump="dok_exec --entrypoint pg_dump postgres:latest"
