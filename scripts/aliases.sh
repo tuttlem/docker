@@ -12,6 +12,10 @@ function dok_exec() {
   sh -c $cmd
 }
 
+# antlr
+alias antlr4="dok_exec --entrypoint java tuttlem/antlr org.antlr.v4.Tool"
+alias grun="dok_exec --entrypoint java tuttlem/antlr org.antlr.v4.gui.TestRig"
+
 # awscli
 alias aws="dok_exec -v ~/.aws:/root/.aws --entrypoint aws tuttlem/awscli:latest"
 
@@ -35,8 +39,8 @@ alias jar="dok_exec --entrypoint jar java:latest"
 alias keytool="dok_exec --entrypoint keytool java:latest"
 
 # node container
-alias node="dok_exec --entrypoint node node:latest"
-alias npm="dok_exec --entrypoint npm node:latest"
+alias node="dok_exec -p 3000:3000 --entrypoint node node:latest"
+alias npm="dok_exec -p 3000:3000 --entrypoint npm node:latest"
 
 # mongo container
 alias mongo="dok_exec --entrypoint mongo mongo:latest"
