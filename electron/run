@@ -1,0 +1,13 @@
+#!/bin/bash
+
+xhost +local:
+
+docker run --rm -ti \
+       -e DISPLAY=unix:0.0                                \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v /dev/snd:/dev/snd --privileged \
+       -v $(pwd):/usr/src/app \
+       -w /usr/src/app \
+       --net=host \
+	tuttlem/electron \
+  "$@"

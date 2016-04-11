@@ -32,6 +32,9 @@ alias ghc="dok_exec --entrypoint ghc haskell:latest"
 alias ghci="dok_exec --entrypoint ghci haskell:latest"
 alias cabal="dok_exec --entrypoint cabal haskell:latest"
 
+# maven container
+alias mvn="dok_exec --entrypoint mvn maven:latest"
+
 # java container
 alias java="dok_exec --entrypoint java java:latest"
 alias javac="dok_exec --entrypoint javac java:latest"
