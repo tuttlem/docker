@@ -31,9 +31,10 @@ alias dnvm="dok_exec --entrypoint dnvm microsoft/aspnet:latest"
 alias ghc="dok_exec --entrypoint ghc haskell:latest"
 alias ghci="dok_exec --entrypoint ghci haskell:latest"
 alias cabal="dok_exec --entrypoint cabal haskell:latest"
+alias runhaskell="dok_exec --entrypoint runhaskell haskell:latest"
 
 # maven container
-alias mvn="dok_exec --entrypoint mvn maven:latest"
+alias mvn="dok_exec -v ~/.m2:/root/.m2 --entrypoint mvn maven:latest"
 
 # java container
 alias java="dok_exec --entrypoint java java:latest"
