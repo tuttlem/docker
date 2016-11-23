@@ -55,6 +55,9 @@ alias mongostat="dok_exec --entrypoint mongostat mongo:latest"
 alias mongoperf="dok_exec --entrypoint mongoperf mongo:latest"
 alias mongorestore="dok_exec --entrypoint mongorestore mongo:latest"
 
+# meteor container
+alias meteor="dok_exec -p 3000:3000 --entrypoint meteor tuttlem/meteor:latest"
+
 # mono container
 alias mono="dok_exec --entrypoint mono mono:latest"
 alias mcs="dok_exec --entrypoint mcs mono:latest"
@@ -77,3 +80,5 @@ alias redis-cli="dok_exec --entrypoint redis-cli redis:latest"
 # scala container
 alias scala="dok_exec --entrypoint scala tuttlem/scala"
 alias scalac="dok_exec --entrypoint scalac tuttlem/scala"
+
+alias lein="dok_exec -p 3000:3000 --entrypoint lein clojure"
