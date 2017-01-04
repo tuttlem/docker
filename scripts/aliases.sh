@@ -58,6 +58,9 @@ alias mongorestore="dok_exec --entrypoint mongorestore mongo:latest"
 # meteor container
 alias meteor="dok_exec -p 3000:3000 --entrypoint meteor tuttlem/meteor:latest"
 
+# ionic container
+alias ionic="dok_exec -p 8100:8100 --entrypoint ionic tuttlem/ionic:latest"
+
 # mono container
 alias mono="dok_exec --entrypoint mono mono:latest"
 alias mcs="dok_exec --entrypoint mcs mono:latest"
@@ -78,7 +81,8 @@ alias psql="dok_exec --entrypoint psql postgres:latest"
 alias redis-cli="dok_exec --entrypoint redis-cli redis:latest"
 
 # scala container
-alias scala="dok_exec --entrypoint scala tuttlem/scala"
-alias scalac="dok_exec --entrypoint scalac tuttlem/scala"
+alias scala="dok_exec -p 3000:3000 -v ~/.sbt:/root/.sbt --entrypoint /root/scala-2.12.1/bin/scala tuttlem/scala"
+alias scalac="dok_exec -p 3000:3000 -v ~/.sbt:/root/.sbt --entrypoint /root/scala-2.12.1/bin/scalac tuttlem/scala"
+alias sbt="dok_exec -p 3000:3000 -v ~/.sbt:/root/.sbt -v ~/.ivy2:/root/.ivy2 --entrypoint sbt tuttlem/scala"
 
-alias lein="dok_exec -p 3000:3000 --entrypoint lein clojure"
+alias lein="dok_exec -v ~/.m2:/root/.m2 -p 3000:3000 --entrypoint lein clojure"

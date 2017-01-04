@@ -4,7 +4,7 @@ MAINTAINER Michael Tuttle <tuttlem@gmail.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl python
 
 RUN localedef en_US.UTF-8 -i en_US -fUTF-8
 
